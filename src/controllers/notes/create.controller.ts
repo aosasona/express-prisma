@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { Note, PrismaClient } from "@prisma/client";
-import CustomResponse from "../../utils/handlers/response.handler";
 import { IExtendedRequest } from "../../utils/types.util";
+import CustomResponse from "../../utils/handlers/response.handler";
 import CustomError from "../../utils/handlers/error.handler";
 
 const create = async (req: Request, res: Response): Promise<any> => {
