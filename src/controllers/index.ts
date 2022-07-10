@@ -1,10 +1,4 @@
-import create from "./auth/create.controller";
-import login from "./auth/login.controller";
+import auth from "./auth";
+import notes from "./notes";
 
-// Controllers
-const auth = {
-  create,
-  login,
-};
-
-export { auth };
+export { auth, notes };
