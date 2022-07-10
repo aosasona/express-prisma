@@ -35,7 +35,7 @@ app.use((req: Request, res: Response, next: Function) => {
 app.use(
   scrawny({
     log: process.env.NODE_ENV !== "production",
-    format: "[METHOD] [PATH] [TIME]",
+    format: "[METHOD] [URL] [TIME]",
   })
 );
 
