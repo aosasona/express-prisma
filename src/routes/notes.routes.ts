@@ -7,5 +7,6 @@ router.get("/", notes.fetch.all);
 router.get("/:id", notes.fetch.one);
 router.post("/create", notes.create);
 router.delete("/:id", notes.del);
+router.put("/:id", notes.update);
 
 export default router;

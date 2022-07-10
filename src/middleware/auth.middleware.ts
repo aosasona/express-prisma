@@ -39,7 +39,7 @@ const authMiddleware = async (
       throw new CustomError("Invalid credentials!", 400);
     }
   } catch (e: any) {
-    console.log(e);
+    // console.log(e);
     return new CustomResponse(res, e).error(e.message, {}, e?.status, {});
   }
 };
