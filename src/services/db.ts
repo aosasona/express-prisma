@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { PrismaClient } from "@prisma/client";
 const MONGO_URI: string = process.env.MONGO_URI || "mongodb://localhost:27017";
 
 export function connect(): void {
@@ -17,3 +18,5 @@ export function disconnect(): void {
     console.log("Disconnected from MongoDB");
   });
 }
+
+export const prisma = new PrismaClient();

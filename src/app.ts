@@ -3,6 +3,8 @@ import helmet from "helmet";
 import cors from "cors";
 import hpp from "hpp";
 import toobusy_js from "toobusy-js";
+import compression from "compression";
+import scrawny from "scrawny";
 
 const app: Express = express();
 
@@ -15,12 +17,13 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(hpp());
+app.use(compression());
 app.disable("x-powered-by");
 
 //APP ROUTES - IMPORT
 import { default as routes } from "./routes";
 
-// TOOBUSY
+// TOO BUSY
 app.use((req: Request, res: Response, next: Function) => {
   if (toobusy_js()) {
     return res.status(429).send("Too busy!");
@@ -28,11 +31,14 @@ app.use((req: Request, res: Response, next: Function) => {
   next();
 });
 
-app.use("/test", routes);
+// SCRAWNY
+app.use(
+  scrawny({
+    log: process.env.NODE_ENV !== "production",
+    format: "[METHOD] [PATH] [TIME]",
+  })
+);
 
-//DEFAULT RESPONSE TO TEST API
-app.get("*", (req: Request, res: Response) => {
-  res.status(200).send("Hello, world!");
-});
+app.use("/", routes);
 
 export default app;

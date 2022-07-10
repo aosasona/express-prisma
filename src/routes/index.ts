@@ -1,13 +1,6 @@
 const router = require("express").Router();
-import { default as dummyRoutes } from "./dummy.route";
-import { default as scrawny } from "scrawny";
+import { default as auth } from "./auth.route";
 
-router.use(
-  "/",
-  scrawny({
-    log: true,
-  }),
-  dummyRoutes
-);
+router.use("/auth", auth);
 
 export default router;

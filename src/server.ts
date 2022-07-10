@@ -16,7 +16,7 @@ server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 
   // Connect to MONGODB database
-  connect();
+  // connect();
 
   // Connect to REDIS
   //   redisClient
