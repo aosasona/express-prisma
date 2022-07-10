@@ -4,6 +4,7 @@ import cors from "cors";
 import hpp from "hpp";
 import toobusy_js from "toobusy-js";
 import compression from "compression";
+import cookieParser from "cookie-parser";
 import scrawny from "scrawny";
 
 const app: Express = express();
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 app.use(hpp());
 app.use(compression());
 app.disable("x-powered-by");
