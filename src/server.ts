@@ -7,7 +7,7 @@ require("dotenv").config();
 import app from "./app";
 import { connect, disconnect } from "./services/db";
 import redisClient from "./utils/redis.util";
-const PORT: string | number = process.env.PORT || 8000;
+const PORT: string | number = process.env.PORT || 8080;
 
 const server = http.createServer(app);
 
@@ -29,11 +29,4 @@ server.listen(PORT, () => {
   //     .catch((err: any) => {
   //       console.log(err);
   //     });
-});
-
-process.on("SIGINT", () => {
-  console.log("SIGINT received. Closing server.");
-  // Disconnect from MONGODB database
-  disconnect();
-  process.exit(0);
 });
