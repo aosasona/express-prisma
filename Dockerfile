@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package.json .
 
-RUN yarn --only=production
+RUN npm i --only=production
 
 COPY . .
 
@@ -12,10 +12,10 @@ RUN npx prisma deploy
 
 RUN npx prisma generate
 
-RUN yarn build
+RUN npm run build
 
 USER node
 
 EXPOSE 8080
 
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
