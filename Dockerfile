@@ -4,11 +4,11 @@ WORKDIR /app
 
 COPY package.json .
 
-RUN npm i --only=production
+RUN npm i --omit=dev
 
 COPY . .
 
-RUN npx prisma deploy
+RUN npx prisma migrate deploy
 
 RUN npx prisma generate
 
