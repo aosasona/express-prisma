@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./dist/server",
     "dev": "nodemon ./src/server.ts",
-    "build": "tsc -p .",
+    "build": "npx tsc -p .",
     "test": "jest --detectOpenHandles",
     "start:prod": "pm2 start --env production"
   },
@@ -31,6 +31,7 @@
     "rand-token": "^1.0.1",
     "redis": "^4.1.0",
     "scrawny": "^0.1.15",
+    "typescript": "^4.7.4",
     "toobusy-js": "^0.5.1",
     "validator": "^13.7.0"
   },
@@ -50,7 +51,6 @@
     "jest": "^28.1.1",
     "nodemon": "^2.0.16",
     "supertest": "^6.2.3",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.4"
+    "ts-node": "^10.7.0"
   }
 }
