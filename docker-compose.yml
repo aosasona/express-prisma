@@ -9,9 +9,8 @@ services:
     restart: always
     ports:
       - "8080:8080"
-    environment:
-      - PORT=8080
-      - DATABASE_URL=postgres://postgres:Noht12345@postgres:5432/noht
+    env_file:
+      - .env
     depends_on:
       - postgres
 
