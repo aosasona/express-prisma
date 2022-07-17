@@ -1,11 +1,10 @@
 volumes:
   postgres:
-    driver: local
 
 services:
-  postgres:
+  db:
     image: postgres:alpine
-    container_name: postgres
+    container_name: db
     restart: unless-stopped
     hostname: postgres
     ports:
@@ -25,5 +24,7 @@ services:
       - "8080:8080"
     env_file:
       - .env
+    environment:
+      - NODE_ENV=production
     depends_on:
-      - postgres
+      - db
