@@ -17,15 +17,15 @@ services:
     volumes:
       - postgres:/var/lib/postgresql/data
 
-  server:
-    container_name: server
-    build: .
-    restart: always
-    ports:
-      - "8080:8080"
-    env_file:
-      - .env
-    environment:
-      - NODE_ENV=production
-    depends_on:
-      - postgres
+  # server:
+  #   container_name: server
+  #   build: .
+  #   restart: always
+  #   ports:
+  #     - "8080:8080"
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     - NODE_ENV=production
+  #   depends_on:
+  #     - postgres
